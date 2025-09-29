@@ -8,6 +8,10 @@ import Landing from "./pages/Landing";
 import DashboardLayout from "./components/DashboardLayout";
 import TenantDashboard from "./pages/tenant/TenantDashboard";
 import LandlordDashboard from "./pages/landlord/LandlordDashboard";
+import TenantLogin from "./pages/auth/TenantLogin";
+import TenantRegister from "./pages/auth/TenantRegister";
+import LandlordRegister from "./pages/auth/LandlordRegister";
+import LandlordLogin from "./pages/auth/LanlordLogin";
 import NotFound from "./pages/NotFound";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 
@@ -22,6 +26,10 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Landing />} />
+          <Route path="/tenant/login" element={<TenantLogin />} />
+          <Route path="/tenant/register" element={<TenantRegister />} />
+          <Route path="/landlord/login" element={<LandlordLogin />} />
+          <Route path="/landlord/register" element={<LandlordRegister />} />
           <Route path="/tenant" element={<DashboardLayout />}>
             <Route index element={<TenantDashboard />} />
             <Route path="payments" element={<div className="p-6"><h1 className="text-2xl font-bold">Payment Portal</h1><p className="text-muted-foreground">Secure rent payment system coming soon...</p></div>} />

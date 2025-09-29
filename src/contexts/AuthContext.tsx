@@ -41,8 +41,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setUser(data.user);
     }
 
-    async function register(payload: any) {
-        const data = await authService.register(payload);
+    async function register(name: string, email: string, password: string, role: 'tenant' | 'landlord') {
+        const data = await authService.register(name, email, password, role);
         localStorage.setItem('token', data.token);
         localStorage.setItem('user', JSON.stringify(data.user));
         setToken(data.token);

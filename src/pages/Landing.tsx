@@ -1,12 +1,10 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Users, Building, CreditCard, Wrench, BarChart3, Shield } from "lucide-react";
 import heroImage from "@/assets/Rental-aspect.jpg";
 
 const Landing = () => {
-  const navigate = useNavigate();
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-secondary/20 to-accent/30">
       {/* Hero Section */}
@@ -32,19 +30,23 @@ const Landing = () => {
             <Button 
               size="lg"
               className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg"
-              onClick={() => navigate('/tenant')}
+              asChild
             >
+              <Link to="/tenant/login">
               <Users className="h-5 w-5 mr-2" />
               Tenant Portal
+              </Link>
             </Button>
             <Button 
               size="lg"
               variant="outline"
               className="border-white text-blue-600 hover:bg-white hover:text-primary px-8 py-4 text-lg"
-              onClick={() => navigate('/landlord')}
+              asChild
             >
+              <Link to="/landlord/login">
               <Building className="h-5 w-5 mr-2" />
               Landlord Portal
+              </Link>
             </Button>
           </div>
         </div>
@@ -121,9 +123,11 @@ const Landing = () => {
                 </div>
                 <Button 
                   className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70"
-                  onClick={() => navigate('/tenant')}
+                  asChild
                 >
+                  <Link to="/tenant/login">
                   Access Tenant Portal
+                  </Link>
                 </Button>
               </CardContent>
             </Card>
@@ -155,9 +159,11 @@ const Landing = () => {
                 <Button 
                   variant="outline"
                   className="w-full border-success text-success hover:bg-success hover:text-success-foreground"
-                  onClick={() => navigate('/landlord')}
+                  asChild
                 >
+                  <Link to="/landlord/login">
                   Access Landlord Portal
+                  </Link>
                 </Button>
               </CardContent>
             </Card>

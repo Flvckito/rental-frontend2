@@ -18,7 +18,7 @@ export async function register(name: string, email: string, password: string, ro
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({ name, email, password, role }),
     });
     if (!response.ok) throw await response.json();
     return response.json();
